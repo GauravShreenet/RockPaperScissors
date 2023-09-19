@@ -1,5 +1,6 @@
 const allBtns = [...document.getElementsByClassName("btn")];
 let userChose = null;
+let computerChose = null;
 const playerCh = document.getElementById("playerCh")
 const result = document.getElementById("result")
 
@@ -10,11 +11,12 @@ allBtns.forEach((btn) => {
         userChose = btn.innerText;
 
         display(userChose);
-
-        const computerChose = generateComputerChoice();
-        const winner = winPlayer(userChose, computerChose);
-
-        displayResult(winner);
+        computerChose = generateComputerChoice();
+        //const winner = ;
+        console.log(userChose);
+        console.log(computerChose);
+        console.log(winPlayer(userChose, computerChose))
+        displayResult(winPlayer(userChose, computerChose));
     });
 });
 
@@ -23,30 +25,29 @@ const display = (str) => {
 }
 
 const generateComputerChoice = () => {
-    const choice = ["Rock", "Paper", "Scissor"];
+    const choice = ["Rock", "Paper", "Scissors"];
     const randomIndex = Math.floor(Math.random()*choice.length);
-    const computerChose = choice[randomIndex];
-    compChoice.innerHTML = computerChose;
-
-    return computerChose;
+    const compChose = choice[randomIndex];
+    compChoice.innerText = compChose;
+    return compChose;
 };
 
 const winPlayer = (user, computer) => {
-    if (user === computer){
-        return `It's a Tie`
-    }else if (
+    if (
         (user === "Rock" &&  computer === "Scissors") || 
         (user === "Paper" &&  computer === "Rock") ||
         (user === "Scissors" &&  computer === "Paper")
     ) {
-        return `You win`
-    }else{
-        return `Computer Wins`
+        return `You win`;
+    } else if (user === computer) {
+        return `It's a Tie`;
+    } else {
+        return `Computer Wins`;
     }
+}
     
-}
 
-const displayResult = (resultText) => {
-    result.innerText = resultText;
-}
 
+const displayResult = (str) => {
+    result.innerText = str;
+}
