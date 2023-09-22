@@ -12,11 +12,8 @@ allBtns.forEach((btn) => {
 
         display(userChose);
         computerChose = generateComputerChoice();
-        //const winner = ;
-        console.log(userChose);
-        console.log(computerChose);
-        console.log(winPlayer(userChose, computerChose))
-        displayResult(winPlayer(userChose, computerChose));
+        const winner = winPlayer(userChose, computerChose);
+        displayResult(winner);
     });
 });
 
