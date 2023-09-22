@@ -30,21 +30,31 @@ const generateComputerChoice = () => {
 };
 
 const winPlayer = (user, computer) => {
+    let str = "";
+
     if (
         (user === "Rock" &&  computer === "Scissors") || 
         (user === "Paper" &&  computer === "Rock") ||
         (user === "Scissors" &&  computer === "Paper")
     ) {
-        return `You win`;
+        return `<button class = "btn btn-transparent text-warning border border-warning">
+                    You Win
+                </button>`;
     } else if (user === computer) {
-        return `It's a Tie`;
+        return `<button class = "btn btn-transparent text-warning border border-warning">
+                    It's a Tie
+                </button>`;
     } else {
-        return `Computer Wins`;
+        return  `<button class = "btn btn-transparent text-warning border border-warning">
+                    Computer Wins
+                </button>`;
     }
+
+    
 }
     
 
 
 const displayResult = (str) => {
-    result.innerText = str;
+    result.innerHTML = str;
 }
